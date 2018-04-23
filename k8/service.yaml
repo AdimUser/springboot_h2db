@@ -1,0 +1,25 @@
+apiVersion: v1
+kind: Service
+metadata:
+  creationTimestamp: 2018-04-23T08:55:45Z
+  labels:
+    run: softcodeit
+  name: softcodeit
+  namespace: default
+  resourceVersion: "47261"
+  selfLink: /api/v1/namespaces/default/services/softcodeit
+  uid: 1c5d3628-46d4-11e8-b38a-12b7df0730ea
+spec:
+  clusterIP: 10.102.140.132
+  externalTrafficPolicy: Cluster
+  ports:
+  - nodePort: 30522
+    port: 80
+    protocol: TCP
+    targetPort: 8080
+  selector:
+    run: softcodeit
+  sessionAffinity: None
+  type: NodePort
+status:
+  loadBalancer: {}

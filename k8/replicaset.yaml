@@ -1,0 +1,55 @@
+apiVersion: extensions/v1beta1
+kind: ReplicaSet
+metadata:
+  annotations:
+    deployment.kubernetes.io/desired-replicas: "1"
+    deployment.kubernetes.io/max-replicas: "2"
+    deployment.kubernetes.io/revision: "1"
+  creationTimestamp: 2018-04-23T08:55:45Z
+  generation: 1
+  labels:
+    pod-template-hash: "2874879855"
+    run: softcodeit
+  name: softcodeit-6dc8dcfd99
+  namespace: default
+  ownerReferences:
+  - apiVersion: extensions/v1beta1
+    blockOwnerDeletion: true
+    controller: true
+    kind: Deployment
+    name: softcodeit
+    uid: 1c3074cd-46d4-11e8-b38a-12b7df0730ea
+  resourceVersion: "47272"
+  selfLink: /apis/extensions/v1beta1/namespaces/default/replicasets/softcodeit-6dc8dcfd99
+  uid: 1c32e8c3-46d4-11e8-b38a-12b7df0730ea
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      pod-template-hash: "2874879855"
+      run: softcodeit
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        pod-template-hash: "2874879855"
+        run: softcodeit
+    spec:
+      containers:
+      - image: utpmahesh/softcodeit
+        imagePullPolicy: Always
+        name: softcodeit
+        resources: {}
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext: {}
+      terminationGracePeriodSeconds: 30
+status:
+  availableReplicas: 1
+  fullyLabeledReplicas: 1
+  observedGeneration: 1
+  readyReplicas: 1
+  replicas: 1

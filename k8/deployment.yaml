@@ -1,0 +1,55 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  annotations:
+    deployment.kubernetes.io/revision: "1"
+  creationTimestamp: 2018-04-23T08:55:45Z
+  generation: 1
+  labels:
+    run: softcodeit
+  name: softcodeit
+  namespace: default
+  resourceVersion: "47273"
+  selfLink: /apis/extensions/v1beta1/namespaces/default/deployments/softcodeit
+  uid: 1c3074cd-46d4-11e8-b38a-12b7df0730ea
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      run: softcodeit
+  strategy:
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+    type: RollingUpdate
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        run: softcodeit
+    spec:
+      containers:
+      - image: utpmahesh/softcodeit
+        imagePullPolicy: Always
+        name: softcodeit
+        resources: {}
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext: {}
+      terminationGracePeriodSeconds: 30
+status:
+  availableReplicas: 1
+  conditions:
+  - lastTransitionTime: 2018-04-23T08:55:45Z
+    lastUpdateTime: 2018-04-23T08:55:45Z
+    message: Deployment has minimum availability.
+    reason: MinimumReplicasAvailable
+    status: "True"
+    type: Available
+  observedGeneration: 1
+  readyReplicas: 1
+  replicas: 1
+  updatedReplicas: 1
