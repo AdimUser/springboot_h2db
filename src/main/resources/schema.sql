@@ -1,5 +1,3 @@
-drop table user;
-
 create table user
 (
    id integer not null,

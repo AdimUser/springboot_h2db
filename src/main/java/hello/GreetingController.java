@@ -2,6 +2,7 @@ package hello;
 
 import java.util.List;
 
+import org.hibernate.validator.internal.util.logging.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -47,10 +48,11 @@ public class GreetingController {
       delete_user.deleteById(greeting.getId());
     }
     
-    @PostMapping("/listdetails")
-    public String userlist(@ModelAttribute String name) {
+    @GetMapping("/listdetails")
+    public String userlist(@RequestParam(name="name", required=false, defaultValue="World") String name, Model model) {
        UserRowMapper list_user = new UserRowMapper() ;
        name = list_user.findAll().toString();
+       model.addAttribute("name", name);
        return "listdetails";
         
         

@@ -38,7 +38,7 @@ public class Greeting {
     
     @Override
     public String toString() {
-        return String.format("User [id=%s, Name=%s]", id, Name);
+        return String.format("id=%s, Name=%s", id, Name);
     }
 
 }
